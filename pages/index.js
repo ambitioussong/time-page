@@ -42,11 +42,17 @@ export default function Home() {
     calendarDays.push(null);
   }
 
+  const formatTime = (date) => {
+    return format(date, 'HH:mm:ss').split('').map((char, index) => (
+      <span key={index}>{char}</span>
+    ));
+  };
+
   return (
     <div className={styles.container}>
       {currentTime && (
         <div className={styles.time}>
-          {format(currentTime, 'HH : mm : ss')}
+          {formatTime(currentTime)}
         </div>
       )}
       <div className={styles.calendar}>

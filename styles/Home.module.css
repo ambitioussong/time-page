@@ -2,22 +2,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* 从顶部开始排列 */
   height: 100vh;
   font-family: Arial, sans-serif;
   background-color: #f0f0f0; /* 给整体页面添加背景色 */
+  padding-top: 50px; /* 为了避免时间紧贴顶部 */
 }
 
 .time {
   font-size: 48px;
   margin-bottom: 20px;
+  font-family: monospace; /* 使用等宽字体 */
+  display: flex;
+  justify-content: center;
+}
+
+.time span {
+  display: inline-block;
+  width: 32px; /* 固定每个数字的宽度 */
+  text-align: center;
 }
 
 .calendar {
   border: 1px solid black;
   border-radius: 10px; /* 添加圆角 */
   background-color: #ffffff; /* 给日历整体添加背景色 */
-  width: 95%;
+  width: 95%; /* 固定日历宽度 */
+  max-width: 800px; /* 最大宽度 */
+  margin-top: 20px; /* 与时间保持固定距离 */
+  padding-bottom: 20px; /* 底部内边距 */
+  flex-grow: 1; /* 占据剩余空间 */
+  display: flex;
+  flex-direction: column;
 }
 
 .weekdays {
@@ -38,6 +54,8 @@
 .daysContainer {
   display: flex;
   justify-content: center;
+  flex-grow: 1;
+  overflow-y: auto; /* 添加垂直滚动条 */
 }
 
 .days {
@@ -75,7 +93,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20px 0; /* 增加上下间距 */
 }
 
 .navButton {
@@ -86,8 +106,4 @@
   color: white;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.navButton:hover {
-  background-color: #4da6ff;
 }
